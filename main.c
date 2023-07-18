@@ -9,7 +9,7 @@ typedef uint32_t sizeType;
 sizeType my_size = 256;
 
 integerType sdot(sizeType n, integerType *ix, integerType *iy){
-    integerType result;
+    integerType result = 0;
     for(sizeType i = 0; i < n; ++i){
         result += ix[i] * iy[i];
     }
@@ -35,5 +35,7 @@ int main() {
 
     integerType dot_product = sdot(my_size, ix, iy);
     printf("Here is the dot product %d \n", dot_product);
+    free(ix);
+    free(iy);
     return 0;
 }
