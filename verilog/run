@@ -1,0 +1,8 @@
+#!/bin/sh
+
+iverilog main.v scalar1.v
+./a.out
+gtkwave signal_scalar_product.vcd
+rm a.out
+rm signal_scalar_product.vcd
+
