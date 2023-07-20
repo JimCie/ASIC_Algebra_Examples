@@ -7,21 +7,25 @@ module scalar_product3(result, IX, IY);
 
    input [SIZE-1:0] IX, IY;
 
-   wire [SIZE-1:0] result;
+   wire [31:0] result1;
+   wire [31:0] result2;
+   wire [31:0] result3;
+   wire [31:0] result4;
+   wire [31:0] result;
 
    //toutes les operations ici sont parrallele
    //et s'execute en meme temps
    //ce sont des affectations continue
-   assign result[31:0]  = IX[31:0]
+   assign result1[31:0]  = IX[31:0]
 	 		* IY[31:0];
 
-   assign result[63:32]  = IX[63:32]
+   assign result2[31:0]  = IX[63:32]
 			 * IY[63:32];
 
-   assign result[95:64]  = IX[95:64]
+   assign result3[31:0]  = IX[95:64]
 			 * IY[95:64];
 
-   assign result[127:96]  = IX[127:96]
+   assign result4[31:0]  = IX[127:96]
 			  * IY[127:96];
+   assign result = result1 + result2 + result3 + result4;
 endmodule
-
